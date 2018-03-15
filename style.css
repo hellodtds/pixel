@@ -1,0 +1,66 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.module {
+  box-sizing: content-box;
+}
+
+body {
+  text-align: center;
+}
+
+h1 {
+  font-family: Monoton;
+  font-size: 70px;
+  margin: 0.2em;
+}
+
+h2 {
+  margin: 1em 0 0.25em;
+}
+
+h2:first-of-type {
+  margin-top: 0.5em;
+}
+
+table,
+tr,
+td {
+  border: 1px solid black;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+.collapse {
+  border-collapse: collapse;
+}
+
+.separate {
+  border-collapse: separate;
+}
+
+tr {
+  height: 40px/*20px*/ ;
+}
+
+td{
+  height: 40px/*20px*/ ;
+}
+
+input[type=number] {
+  width: 6em;
+}
+
+table {
+    table-layout: fixed;
+    /* Under the "fixed" layout method, the entire table can be rendered once the first table row has been downloaded and analyzed. */
+}
+
+

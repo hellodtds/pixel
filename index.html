@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Grid Test</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>Pixel Art Maker</h1>
+        <h2>Choose Grid Size</h2>
+        <form id="sizePicker">
+            Grid Height:
+            <input type="number" id="inputHeight" name="height" min="1" value="1">
+            Grid Width:
+            <input type="number" id="inputWidth" name="width" min="1" value="1">
+            <input type="submit">
+        </form>
+
+        <h2>Pick A Color</h2>
+        <input type="color" id="colorPicker">
+
+        <h2>Design Canvas</h2>
+
+
+        <div class="module">
+            <div id="pixelCanvas"></div>
+        </div>
+
+
+        <!-- JS Start -->
+        <script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+
+        <script src="app.js"></script>
+    </body>
+</html>
