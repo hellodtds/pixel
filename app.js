@@ -1,4 +1,4 @@
-/* VARIABLE ASSIGNMENT */
+/** Variables **/
 
 var $submit = $("input[type=submit]");
 var inputHeight = $("#inputHeight").attr("value", 10); // inital height, width = 10
@@ -7,15 +7,13 @@ var inputWidth = $("#inputWidth").attr("value", 10);
 
 
 
+/** Properties **/
 
-/** DONE: add input value functionality **/
 
-$submit.on("click", function(evt){
-    evt.preventDefault();
-    makeGrid(inputHeight.val(), inputWidth.val());
-});
 
-/* FUNCTION: MAKE GRID! */
+
+/** Methods **/
+
 function makeGrid(height, width) {
 
     for (var row = 0; row < height; row++) {
@@ -26,14 +24,27 @@ function makeGrid(height, width) {
             var td = document.createElement("td");
             // $(td).addClass("fill");
             $(tr).append(td); // 10 times
-
         }
         $(table).append(tr);
     }
-
 }
 
 
+
+function addColor() {}
+
+function removeColor() {}
+
+function resetGrid() {}
+
+
+
+/** Event Handlers **/
+
+$submit.on("click", function(evt){
+    evt.preventDefault();
+    makeGrid(inputHeight.val(), inputWidth.val());
+});
 
 
 $('#pixelCanvas').on('click', 'td', function() {
