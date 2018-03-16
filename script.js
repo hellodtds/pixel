@@ -7,28 +7,32 @@ var inputWidth = $("#inputWidth").attr("value", 10);
 var colorPicker = $("input[type=color]");
 var currentColor = colorPicker.val();
 
+const reset = document.createElement("button");
 
-/** Properties **/
-/** Methods **/
+reset.textContent = "Reset Grid";
+reset.setAttribute('id', 'reset');
 
 function makeGrid(height, width) {
 
-    for (var row = 0; row < height; row++) {
-        // create row
-        var table = $("#pixelCanvas"); // #pixelCanvas
-        var tr = document.createElement("tr");
-        for (var col = 0; col < width; col++) {
+
+    for (let row = 0; row < height; row++) {
+        let table = document.querySelector("#pixelCanvas");
+        let tr = document.createElement("tr");
+        for (let col = 0; col < width; col++) {
             var td = document.createElement("td");
-            // $(td).addClass("fill");
-            $(tr).append(td); // 10 times
+            tr.appendChild(td);
         }
-        $(table).append(tr);
+        table.appendChild(tr);
+        table.after(reset);
+
     }
+
 }
 
+reset.addEventListener('click', resetGrid, false);
+
 function addColor() {
-    var colorPicker = $("input[type=color]");
-    var currentColor = colorPicker.val();
+
     $(this).css("backgroundColor",currentColor);
 
     if (currentColor) {
@@ -45,37 +49,11 @@ $submit.on("click", function(evt){
 $('#pixelCanvas').on('click', 'td', addColor);
 
 
+function resetGrid() {
+        reset.remove();
+        $('#pixelCanvas').find('tr').remove();
+}
 
-
-
-
-
-
-
-// function modifyColor() {
-//     var tr = document.getElementById('tr');
-
-// }
-
-
-
-
-// function resetGrid() {}
-
-
-
-
-
-
-
-
-
-
-
-// document.addEventListener("click", function(e) {
-//     this === e.currentTarget;
-//     console.log(this);
-// });
 
 
 
