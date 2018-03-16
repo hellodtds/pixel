@@ -52,5 +52,12 @@ $('#pixelCanvas').on('click', 'td', function() {
     var currentColor = colorPicker.val();
     $(this).css("backgroundColor",currentColor);
 
+    if (currentColor) {
+        console.log("the color is " + currentColor);
+    }
+
 });
+
+
+
 
