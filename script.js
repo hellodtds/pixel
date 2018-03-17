@@ -1,6 +1,6 @@
 /** Variables **/
 
-var submit = $("input[type=submit]");
+var submit = document.querySelector("input[type=submit]");
 var inputHeight = $("#inputHeight").attr("value", 10); // inital height, width = 10
 var inputWidth = $("#inputWidth").attr("value", 10);
 
@@ -49,21 +49,29 @@ function resetGrid() {
 /** Event Listeners **/
 
 // Creating Grid
-submit.on("click", function(evt){
+submit.addEventListener("click", function(evt){
     evt.preventDefault();
     let designCanvas = document.querySelector('.module').previousElementSibling;
-    let enforcer = document.createDocumentFragment();
+    // let enforcer = document.createDocumentFragment();
+    let enforcer = document.createElement('div');
 
-    if (enforcer.textContent === "Action Unavailable") {
-        enforcer.textContent = "";
-        submit.disabled = "true";
+    // Todo: Remove documentFragment if true
+
+    // vanilla js for input[submit]
+
+    // fix: re-enable input[submit] after grid reset and fix enforcer
+
+    if (enforcer) {
+        submit.setAttribute("disabled", true);
     }
+
     else if (table.hasChildNodes() === true) {
         enforcer.textContent = "Action Unavailable";
         designCanvas.before(enforcer);
-    } else {
-        makeGrid(inputHeight.val(), inputWidth.val());
     }
+
+    makeGrid(inputHeight.val(), inputWidth.val());
+
 });
 
 // Adding color
