@@ -60,5 +60,11 @@ table {
     /* Under the "fixed" layout method, the entire table can be rendered once the first table row has been downloaded and analyzed. */
 }
 
+.hidden {
+    display: none;
+}
 
+.visible {
+    display: inline;
+}
 

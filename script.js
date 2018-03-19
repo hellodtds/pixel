@@ -1,6 +1,7 @@
 /** Variables **/
 
-var submit = document.querySelector('input[type=submit]');
+var submit = document.querySelector('#create');
+submit.value = "create";
 // var inputHeight = $("#inputHeight").attr("value", 10); // inital height, width = 10
 
 var inputHeight = document.querySelector('#inputHeight'); // inital height, width = 10
@@ -16,9 +17,12 @@ let table = document.querySelector('table');
 
 
 // todo: better placement
-const reset = document.createElement("button");
-reset.textContent = "Reset Grid";
-reset.setAttribute('id', 'reset');
+// const reset = document.createElement("button");
+// reset.textContent = "Reset Grid";
+// reset.setAttribute('id', 'reset');
+
+const reset = document.querySelector('#reset');
+reset.value = "reset"
 
 
 /** Methods **/
@@ -33,8 +37,16 @@ function makeGrid(height, width) {
             tr.appendChild(td);
         }
         table.appendChild(tr);
-        table.after(reset);
+        // table.after(reset);
+
+
     }
+    submit.classList.remove('visible');
+    submit.classList.add('hidden');
+
+
+    reset.classList.add('visible');
+
 
 }
 
@@ -45,7 +57,11 @@ function addColor(evt) {
 }
 
 function resetGrid() {
-        reset.remove();
+        // reset.remove();
+
+        submit.classList.remove('hidden');
+        submit.classList.add('visible');
+
         $('#pixelCanvas').find('tr').remove();
         makeGrid(inputHeight.value, inputWidth.value);
 
@@ -62,7 +78,7 @@ submit.addEventListener("click", function(evt){
     evt.preventDefault();
     let designCanvas = document.querySelector('.module').previousElementSibling;
     // let enforcer = document.createDocumentFragment();
-    let enforcer = document.createElement('div');
+    // let enforcer = document.createElement('div');
 
     // Todo: Remove documentFragment if true (Funcationality disabled)
 
@@ -70,18 +86,18 @@ submit.addEventListener("click", function(evt){
 
     // fix: re-enable input[submit] after grid reset and fix enforcer
 
-    if (enforcer) {
-        // setting the value of the disabled attribute to the empty string (""), we are setting disabled to true
-        submit.setAttribute("disabled", "");
-        // console.log("enforcer active");
-    }
+    // if (enforcer) {
+    //     // setting the value of the disabled attribute to the empty string (""), we are setting disabled to true
+    //     submit.setAttribute("disabled", "");
+    //     // console.log("enforcer active");
+    // }
 
 
 
-    else if (table.hasChildNodes() === true) {
-        enforcer.textContent = "Action Unavailable";
-        designCanvas.before(enforcer);
-    }
+    // else if (table.hasChildNodes() === true) {
+    //     enforcer.textContent = "Action Unavailable";
+    //     designCanvas.before(enforcer);
+    // }
 
     makeGrid(inputHeight.value, inputWidth.value);
 
