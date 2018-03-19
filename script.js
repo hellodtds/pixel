@@ -24,6 +24,7 @@ reset.setAttribute('id', 'reset');
 /** Methods **/
 
 function makeGrid(height, width) {
+
     for (let row = 0; row < height; row++) {
         let table = document.querySelector("#pixelCanvas");
         let tr = document.createElement("tr");
@@ -47,7 +48,10 @@ function resetGrid() {
         reset.remove();
         $('#pixelCanvas').find('tr').remove();
         makeGrid(inputHeight.value, inputWidth.value);
+
         document.querySelector('td').addEventListener('click', addColor);
+
+        // submit.disabled = false; // find best placement
 }
 
 
@@ -68,8 +72,8 @@ submit.addEventListener("click", function(evt){
 
     if (enforcer) {
         // setting the value of the disabled attribute to the empty string (""), we are setting disabled to true
-        // submit.setAttribute("disabled", "");
-        console.log("enforcer active");
+        submit.setAttribute("disabled", "");
+        // console.log("enforcer active");
     }
 
 
