@@ -1,3 +1,9 @@
+/* Todo: Add better create and reset functionality (flowchart it) */
+/* Extra: Responsive for Mobile */
+/* Extra: Better design: fun, playful background */
+
+
+
 /** Variables **/
 
 var submit = document.querySelector('#create');
@@ -37,7 +43,7 @@ function makeGrid(height, width) {
             tr.appendChild(td);
         }
         table.appendChild(tr);
-        // table.after(reset);
+        table.after(reset); // short-circuits "create button" functionality
 
 
     }
