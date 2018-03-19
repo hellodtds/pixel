@@ -1,11 +1,16 @@
 /** Variables **/
 
-var submit = document.querySelector("input[type=submit]");
-var inputHeight = $("#inputHeight").attr("value", 10); // inital height, width = 10
-var inputWidth = $("#inputWidth").attr("value", 10);
+var submit = document.querySelector('input[type=submit]');
+// var inputHeight = $("#inputHeight").attr("value", 10); // inital height, width = 10
 
-var colorPicker = $("input[type=color]");
-var currentColor = colorPicker.val();
+var inputHeight = document.querySelector('#inputHeight'); // inital height, width = 10
+// var inputWidth = $("#inputWidth").attr("value", 10);
+var inputWidth = document.querySelector('#inputWidth');
+
+// var colorPicker = $("input[type=color]");
+// var colorPicker = document.querySelector('input[type=color]');
+var colorPicker = document.querySelector('#colorPicker');
+var currentColor = colorPicker.value;
 
 let table = document.querySelector('table');
 
@@ -41,7 +46,7 @@ function addColor(evt) {
 function resetGrid() {
         reset.remove();
         $('#pixelCanvas').find('tr').remove();
-        makeGrid(inputHeight.val(), inputWidth.val());
+        makeGrid(inputHeight.value, inputWidth.value);
         document.querySelector('td').addEventListener('click', addColor);
 }
 
@@ -55,22 +60,26 @@ submit.addEventListener("click", function(evt){
     // let enforcer = document.createDocumentFragment();
     let enforcer = document.createElement('div');
 
-    // Todo: Remove documentFragment if true
+    // Todo: Remove documentFragment if true (Funcationality disabled)
 
     // vanilla js for input[submit]
 
     // fix: re-enable input[submit] after grid reset and fix enforcer
 
     if (enforcer) {
-        submit.setAttribute("disabled", true);
+        // setting the value of the disabled attribute to the empty string (""), we are setting disabled to true
+        // submit.setAttribute("disabled", "");
+        console.log("enforcer active");
     }
+
+
 
     else if (table.hasChildNodes() === true) {
         enforcer.textContent = "Action Unavailable";
         designCanvas.before(enforcer);
     }
 
-    makeGrid(inputHeight.val(), inputWidth.val());
+    makeGrid(inputHeight.value, inputWidth.value);
 
 });
 
@@ -81,7 +90,7 @@ $('table').on('click', "td", addColor);
 reset.addEventListener('click', resetGrid, false);
 
 
-
+// Possible Button Function Fix: Toggle input for Reset and "Submit" (rename to "Create")
 
 
 
