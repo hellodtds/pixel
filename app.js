@@ -1,6 +1,6 @@
 /** Variables **/
 
-var $submit = $("input[type=submit]");
+var createButton = $("button[name=create]");
 var inputHeight = $("#inputHeight").attr("value", 10); // inital height, width = 10
 var inputWidth = $("#inputWidth").attr("value", 10);
 
@@ -11,7 +11,13 @@ var currentColor = colorPicker.val();
 /** Properties **/
 /** Methods **/
 
+let gridCheck = false;
+
+
+
+
 function makeGrid(height, width) {
+
 
     for (var row = 0; row < height; row++) {
         // create row
@@ -22,9 +28,15 @@ function makeGrid(height, width) {
             // $(td).addClass("fill");
             $(tr).append(td); // 10 times
         }
+
+
         $(table).append(tr);
     }
+
 }
+
+
+
 
 function addColor() {
     var colorPicker = $("input[type=color]");
@@ -37,12 +49,25 @@ function addColor() {
 }
 
 /** Event: Submit Grid Row and Column Length **/
-$submit.on("click", function(evt){
+createButton.on("click", function(evt){
     evt.preventDefault();
-    makeGrid(inputHeight.val(), inputWidth.val());
+    console.log("works!")
+    if ($("table") === gridCheck) {
+        makeGrid(inputHeight.val(), inputWidth.val());
+
+    } else {
+        $("table").empty();
+        makeGrid(inputHeight.val(), inputWidth.val());
+        gridCheck = true;
+        console.log("delete grid");
+    }
+
 });
 
 $('#pixelCanvas').on('click', 'td', addColor);
+
+
+// Check out https://trackingjs.com/docs.html#trackers for checking colors on grid for surprise
 
 
 
